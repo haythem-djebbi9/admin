@@ -1,0 +1,85 @@
+/* Styles pour l'en-tête */
+header {
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Styles pour le contenu principal */
+  main {
+    padding: 20px;
+  }
+  
+  /* Styles pour les couleurs */
+  .couleurs-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .couleur-item {
+    width: 20%;
+    margin: 10px;
+    position: relative; /* Ajout de position relative */
+    overflow: hidden;
+  }
+  
+  .couleur-image {
+    width: 100%; /* ou la taille que vous souhaitez */
+    height: auto; /* Pour maintenir le ratio de l'image */
+    object-fit: cover; /* Pour que l'image conserve son ratio tout en remplissant son conteneur */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .couleur-item:hover .couleur-image {
+    transform: scale(1.1);
+  }
+  
+  .codec {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    font-size: 12px;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    display: flex;
+    justify-content: center; /* Centre les boutons horizontalement */
+    align-items: center; /* Centre les boutons verticalement */
+    opacity: 0; /* La superposition est initialement invisible */
+    transition: opacity 0.3s ease-in-out; /* Animation de transition de l'opacité */
+  }
+  
+  .couleur-item:hover .overlay {
+    opacity: 1; /* Affiche la superposition lors du survol */
+  }
+  
+  .btn-delete,
+  .btn-edit {
+    margin: 5px; /* Marge autour des boutons */
+    padding: 10px; /* Remplissage à l'intérieur des boutons */
+    background-color: #ff0000; /* Couleur de fond du bouton de suppression */
+    color: #fff; /* Couleur du texte des boutons */
+    border: none; /* Pas de bordure */
+    cursor: pointer; /* Curseur pointeur pour indiquer que les boutons sont cliquables */
+  }
+  
+  .btn-edit {
+    background-color: #007bff; /* Couleur de fond du bouton de modification */
+  }
+  

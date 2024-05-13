@@ -1,0 +1,46 @@
+<div class="container mt-5">
+    <div style="display: flex;justify-content: space-between;">
+        <h2>Liste des commandes</h2>
+        <!-- Bouton pour ajouter une commande -->
+        <!-- <button [routerLink]="['/commande/ajout']" class="btn btn-primary"> Ajouter </button> -->
+    </div>
+    <div class="row mt-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Adresse</th>
+                    <th>Couleur</th>
+                    <th>Quantité</th>
+                    <th>Prix</th>
+                    <th>Date de commande</th>
+                    <th>Date de livraison</th>
+                    <th>Livrée</th>
+                    <th>Actions</th> <!-- Ajout d'une colonne pour les actions -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Boucle sur les commandes et affichage des données -->
+                <tr *ngFor="let commande of commandes">
+                    <td>{{ commande.user }}</td> <!-- Nom de l'utilisateur -->
+                    <td>{{ commande.prenom }}</td> <!-- Prénom de l'utilisateur -->
+                    <td>{{ commande.emailUser }}</td> <!-- Email de l'utilisateur -->
+                    <td>{{ commande.usertel }}</td> <!-- Téléphone de l'utilisateur -->
+                    <td>{{ commande.useraddresse }}</td> <!-- Adresse de l'utilisateur -->
+                    <td>{{ commande.couleur }}</td> <!-- Couleur de la commande -->
+                    <td>{{ commande.quantite }}</td> <!-- Quantité commandée -->
+                    <td>{{ commande.prix }}</td> <!-- Prix de la commande -->
+                    <td>{{ commande.date | date: 'dd/MM/yyyy' }}</td> <!-- Date de la commande -->
+                    <td>{{ commande.dateLivraison ? (commande.dateLivraison | date: 'dd/MM/yyyy') : 'Non livrée' }}</td> <!-- Date de livraison si disponible -->
+                    <td>{{ commande.livree ? 'Oui' : 'Non' }}</td> <!-- Livrée ou non -->
+                    <td>
+                        <!-- Ajouter des boutons pour des actions supplémentaires si nécessaire -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

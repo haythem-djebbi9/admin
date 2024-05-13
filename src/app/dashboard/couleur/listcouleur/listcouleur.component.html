@@ -1,0 +1,15 @@
+<button [routerLink]="['/dashboard/couleur/ajout']"  class="btn btn-primary"> Ajouter </button>
+
+    <div class="couleurs-container">
+
+      <div *ngFor="let couleur of couleurs" class="couleur-item" (mouseover)="showButtons=true" (mouseleave)="showButtons=false">
+        <img class="couleur-image" [src]="'http://127.0.0.1:3000/image/' + couleur.image" alt="Couleur">
+        <div class="overlay" *ngIf="showButtons">
+          <button class="btn-delete" (click)="delete(couleur._id)">Supprimer</button>
+          <button class="btn-edit" [routerLink]="[ '/dashboard/couleur/modifier' , couleur._id ]">Modifier</button>
+        </div>
+        <div class="codec">{{ couleur.codec }}</div>
+      </div>
+    </div>
+
+  

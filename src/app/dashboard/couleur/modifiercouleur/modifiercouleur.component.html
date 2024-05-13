@@ -1,0 +1,30 @@
+<div class="container mt-5">
+
+  <h2>modifier couleur</h2>
+
+  <div class="row">
+
+      <div class="col-6 mx-auto">
+
+          <form role="form" [formGroup]="couleurForm" (ngSubmit)="updateCouleur()">
+              <div class="mb-3">
+                  <label class="form-label" for="name">code couleur:</label>
+                  <input formControlName="codec" type="text"
+                      [ngClass]="{ 'form-control': true, 'error': couleurForm.controls['codec'].touched && couleurForm.controls['codec'].invalid } "
+                      id="codec" placeholder="codec">
+              </div>
+            
+              <div class="mb-3">
+                  <label class="form-label" for="image">Image:</label>
+                  <input formControlName="image" type="file"(change)="select($event)"
+                      [ngClass]="{ 'form-control': true, 'error': couleurForm.controls['image'].touched && couleurForm.controls['image'].invalid } "
+                      id="image" placeholder="Image">
+              </div>
+
+              <button [disabled]="couleurForm.invalid" class="btn btn-primary form-control mt-4">UPDATE</button>
+          </form>
+      </div>
+
+  </div>
+
+</div>

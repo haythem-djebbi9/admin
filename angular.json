@@ -87,7 +87,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/app/assets/css/app-dark.min.css",
+              "src/app/assets/css/app.min.css",
+              "src/app/assets/css/icons.min.css"
             ],
             "scripts": []
           }

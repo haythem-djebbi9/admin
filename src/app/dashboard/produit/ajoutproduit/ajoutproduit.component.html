@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <h2>Ajouter Produit</h2>
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <form [formGroup]="produitForm">
+                <label for="name">Nom:</label>
+                <input formControlName="name" id="name" name="name" type="text" class="form-control m-2" placeholder="Nom">
+
+                <label for="description">Description:</label>
+                <input formControlName="description" id="description" name="description" type="text" class="form-control m-2" placeholder="Description">
+
+                <label for="prix">Prix:</label>
+                <input formControlName="prix" id="prix" name="prix" type="number" class="form-control m-2" placeholder="Prix">
+
+                <label for="quantite">Quantité:</label>
+                <input formControlName="quantite" id="quantite" name="quantite" type="number" class="form-control m-2" placeholder="Quantité">
+
+                <label for="idCat">Catégorie:</label>
+                <select formControlName="idCat" id="idCat" name="idCat" class="form-control m-2">
+                    <option *ngFor="let item of categories" [value]="item._id"> {{ item.name }} </option>
+                </select>
+
+                <label for="image">Image:</label>
+                <input (change)="select($event)" id="image" name="image" type="file" class="form-control m-2" placeholder="Image">
+
+                <button (click)="ajout()" class="btn btn-primary form-control m-2">Ajouter</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container mt-5">
+
+    <div style="display: flex;justify-content: space-between;">
+        <h2>Liste des livreurs</h2>
+        <button [routerLink]="['/dashboard/livreur/ajout']"  class="btn btn-primary"> Ajouter </button>
+    </div>
+
+    <div class="row mt-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Adresse</th>
+                    <th>Téléphone</th>
+                    <th>Email</th>
+                   
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Boucle sur les administrateurs et affichage des données -->
+                <tr *ngFor="let livreur of livreurs">
+                    <td>{{ livreur.name }}</td>
+                    <td>{{ livreur.prenom }}</td>
+                    <td>{{ livreur.adresse }}</td>
+                    <td>{{ livreur.telephone }}</td>
+                    <td>{{ livreur.email }}</td>
+                 
+                    <td>
+                        <button (click)="delete(livreur._id)" class="btn btn-danger text-dark m-1">
+                            <i class="fas fa-trash-alt"></i> <!-- Icône de corbeille -->
+                            <span class="ml-2">Supprimer</span> <!-- Texte d'indication -->
+                          </button>
+                        <!-- Bouton de mise à jour -->
+                        <!-- <button [routerLink]="['/admin/update', admin._id]" class="btn btn-info m-1 text-dark">
+                            Modifier
+                        </button> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

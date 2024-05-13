@@ -1,0 +1,39 @@
+<div class="container mt-5">
+
+    <div style="display: flex;justify-content: space-between;">
+
+        <h2>Liste categorie</h2>
+
+        <!-- Bouton pour ajouter un département -->
+        <button [routerLink]="['/dashboard/promotion/ajout']"  class="btn btn-primary"> Ajouter </button>
+    </div>
+
+    <div class="row mt-2">
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th class="w-50">pourcentageReduction</th>
+                   
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- Boucle sur les départements et affichage des données -->
+                <tr *ngFor="let Promotion of promotion">
+                    <td>{{ Promotion.validite | date:'medium' }}</td>
+                    <td>{{ Promotion.pourcentageReduction }}</td>
+
+                    <td>{{ Promotion.description }}</td>
+                   
+                       
+                                      </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

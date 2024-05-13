@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div style="display: flex;justify-content: space-between;">
+        <h2>Liste des Produits</h2>
+        <button [routerLink]="['/dashboard/produit/ajout']"  class="btn btn-primary"> Ajouter </button>
+
+    </div>
+    <div class="row mt-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+
+                    <th>Description</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>categorie</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of produit">
+                    <td>
+                        <img style="width: 60px; border-radius: 50%;" [src]="'http://127.0.0.1:3000/image/' + item.image" alt="">
+                    </td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.prix }}</td>
+                    <td>{{ item.quantite }}</td>
+                    <td>{{ item.categorie.name }}</td>
+                    
+                    <button (click)="delete(item._id)" class="btn btn-danger text-dark m-1">
+                        <i class="fas fa-trash-alt"></i> <!-- Icône de corbeille -->
+                        <span class="ml-2">Supprimer</span> <!-- Texte d'indication -->
+                      </button>
+                      <button  [routerLink]="[ '/dashboard/produit/update' , item._id ]"  class="btn btn-info m-1  text-dark m-1"> update </button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

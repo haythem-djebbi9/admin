@@ -1,0 +1,57 @@
+<div class="container mt-5">
+
+    <h2>Ajouter Produit</h2>
+
+    <div class="row">
+
+        <div class="col-6 mx-auto">
+
+            <form role="form" [formGroup]="produitForm" (ngSubmit)="update()">
+                <div class="mb-3">
+                    <label class="form-label" for="name">Nom:</label>
+                    <input formControlName="name" type="text"
+                        [ngClass]="{ 'form-control': true, 'error': produitForm.controls['name'].touched && produitForm.controls['name'].invalid } "
+                        id="name" placeholder="Nom">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description:</label>
+                    <input formControlName="description" type="text"
+                        [ngClass]="{ 'form-control': true, 'error': produitForm.controls['description'].touched && produitForm.controls['description'].invalid } "
+                        id="description" placeholder="Description">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="prix">Prix:</label>
+                    <input formControlName="prix" type="number"
+                        [ngClass]="{ 'form-control': true, 'error': produitForm.controls['prix'].touched && produitForm.controls['prix'].invalid } "
+                        id="prix" placeholder="Prix">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="quantite">Quantité:</label>
+                    <input formControlName="quantite" type="number"
+                        [ngClass]="{ 'form-control': true, 'error': produitForm.controls['quantite'].touched && produitForm.controls['quantite'].invalid } "
+                        id="quantite" placeholder="Quantité">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="idCat">Catégorie:</label>
+                    <select formControlName="idCat" class="form-select"
+                        [ngClass]="{ 'form-control': true, 'error': produitForm.controls['idCat'].touched && produitForm.controls['idCat'].invalid } ">
+                        <option *ngFor="let item of categories" [value]="item._id"> {{ item.name }} </option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="image">Image:</label>
+                    <input formControlName="image" type="file" (change)="select($event)"
+                        [ngClass]="{ 'form-control': true, 'error': produitForm.controls['image'].touched && produitForm.controls['image'].invalid } "
+                        id="image" placeholder="Image">
+                </div>
+
+                <button [disabled]="produitForm.invalid" class="btn btn-primary form-control mt-4">UPDATE</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>

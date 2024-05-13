@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <div style="display: flex;justify-content: space-between;">
+        <h2>Feedback</h2>
+        <!-- Bouton pour ajouter un département -->
+    </div>
+    <div class="row mt-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Lastname</th>
+                    <th>Feedback</th>
+                    <th>telephone</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Boucle sur les rétroactions et affichage des données -->
+                <tr *ngFor="let feedbackItem of feedbackk">
+                    <td>{{ feedbackItem.user.name }}</td>
+                    <td>{{ feedbackItem.user.prenom }}</td>
+                    <td>{{ feedbackItem.feedbackText }}</td>
+                    <td>{{ feedbackItem.user.telephone }}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

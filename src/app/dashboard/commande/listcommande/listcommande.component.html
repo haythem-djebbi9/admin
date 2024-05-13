@@ -1,0 +1,55 @@
+<div class="container mt-5">
+    <div style="display: flex;justify-content: space-between;">
+        <h2>Liste des commandes</h2>
+        <!-- Bouton pour ajouter une commande -->
+        <!-- <button [routerLink]="['/commande/ajout']" class="btn btn-primary"> Ajouter </button> -->
+    </div>
+    <div class="row mt-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>prenom</th>
+                    <th>gmail</th>
+                    <th>TELEPHONE</th>
+                    <th>addresse</th>
+                    <th>Produits</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                    <th>Date de commande</th>
+                    <th>Date de livraison</th>
+                    <th>Livrée</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Boucle sur les commandes et affichage des données -->
+                <tr *ngFor="let commande of commandes">
+                    <td>{{ commande.user }}</td> 
+                    <td>{{ commande.prenom }}</td> 
+                    <td>{{ commande.emailUser }}</td>
+                    <td>{{ commande.usertel }}</td><!-- Afficher le nom de l'utilisateur -->
+                    <td>{{ commande.useraddresse }}</td><!-- Afficher le nom de l'utilisateur -->
+                    <td>
+                        <!-- Boucle sur les produits de la commande -->
+                        <ng-container *ngFor="let produit of commande.produits">
+                            <div>{{ produit.nomProduit }}</div>
+                        </ng-container>
+                    </td>
+                    <td>
+                        <!-- Boucle sur les produits de la commande -->
+                        <ng-container *ngFor="let produit of commande.produits">
+                            <div>{{ produit.quantite }}</div>
+                        </ng-container>
+                    </td>
+                    <td>{{ commande.total }}</td> <!-- Afficher le total de la commande -->
+                    <td>{{ commande.date | date: 'dd/MM/yyyy' }}</td> <!-- Afficher la date de la commande -->
+                    <td>{{ commande.dateLivraison  ? (commande.dateLivraison | date: 'dd/MM/yyyy') : 'Non livrée' }}</td> <!-- Afficher la date de livraison si disponible -->
+                    <td>{{ commande.livree ? 'Oui' : 'Non' }}</td> <!-- Afficher si la commande est livrée ou non -->
+                    <td>
+                        <!-- Ajouter des boutons pour des actions supplémentaires si nécessaire -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
