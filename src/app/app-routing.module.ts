@@ -21,6 +21,7 @@ import { ListcouleurComponent } from './dashboard/couleur/listcouleur/listcouleu
 import { AjoutcouleurComponent } from './dashboard/couleur/ajoutcouleur/ajoutcouleur.component';
 import { ModifiercouleurComponent } from './dashboard/couleur/modifiercouleur/modifiercouleur.component';
 import { ListComponent } from './dashboard/commandelouleur/list/list.component';
+import { PowerbiComponent } from './dashboard/powerbi/powerbi.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -46,6 +47,8 @@ const routes: Routes = [
     { path: 'couleur/modifier/:id', component: ModifiercouleurComponent },
 
     { path: 'commandecouleur/list', component: ListComponent },
+
+    { path: 'statistique', component:PowerbiComponent },
 
 
   ]},

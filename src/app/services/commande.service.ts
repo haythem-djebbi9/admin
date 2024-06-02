@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,4 +13,12 @@ export class CommandeService {
   getall() {
     return this.http.get(this.url + 'commande/commandes');
   }
+
+  accepterCommande(commandeId: string): Observable<any> {
+    return this.http.patch(`${this.url}commande/accepter/${commandeId}`, {});
+  }
+
+  
+
+
 }

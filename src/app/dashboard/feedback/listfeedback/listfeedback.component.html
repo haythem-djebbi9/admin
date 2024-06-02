@@ -11,8 +11,11 @@
                     <th>Lastname</th>
                     <th>Feedback</th>
                     <th>telephone</th>
+                    <th>etat</th>
+                    <th>affiche</th>
 
-                </tr>
+                </tr>                    
+
             </thead>
             <tbody>
                 <!-- Boucle sur les rétroactions et affichage des données -->
@@ -21,7 +24,9 @@
                     <td>{{ feedbackItem.user.prenom }}</td>
                     <td>{{ feedbackItem.feedbackText }}</td>
                     <td>{{ feedbackItem.user.telephone }}</td>
-
+                    <td>{{ feedbackItem.affiche }}</td>
+<td>                        <button *ngIf="!feedbackItem.affiche" class="btn btn-success" (click)="setFeedbackAffiche(feedbackItem.id)">Afficher</button>
+</td>
                 </tr>
             </tbody>
         </table>

@@ -13,5 +13,7 @@ export class FeedbackService {
   getall() {
     return this.http.get(this.url + 'feedback/all');
   }
-
+  setFeedbackAffiche(feedbackId: string) {
+    return this.http.put(`${this.url}feedback/affiche/${feedbackId}`, {});
+  }
 }

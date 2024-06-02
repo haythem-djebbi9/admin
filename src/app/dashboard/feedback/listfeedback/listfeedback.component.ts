@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FeedbackService } from 'src/app/services/feedback.service';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listfeedback',
@@ -11,7 +12,18 @@ export class ListfeedbackComponent {
   constructor(public data: FeedbackService , public userserv: UserService ) { }
 
   feedbackk:any;
-
+  setFeedbackAffiche(feedbackId: string): void {
+    this.data.setFeedbackAffiche(feedbackId).subscribe(
+      () => {
+        Swal.fire('Succès', 'Affichage du feedback modifié avec succès', 'success');
+        // Mettre à jour la liste des feedbacks après la modification
+      
+      },
+      (error) => {
+        Swal.fire('Erreur', 'Erreur lors de la modification de l\'affichage du feedback', 'error');
+      }
+    );
+  }
   ngOnInit(): void {
 
   
